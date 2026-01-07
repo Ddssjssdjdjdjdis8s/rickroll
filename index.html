@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Загрузка...</title>
+    <style>
+        body { margin:0; padding:0; background:#000; overflow:hidden; }
+    </style>
+</head>
+<body>
+<script>
+    // Самый надёжный способ автозапуска в 2026 году
+    const videoId = "dQw4w9WgXcQ";
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&loop=1&playlist=${videoId}`;
+
+    // Пытаемся сразу запустить с автоплеем
+    document.body.innerHTML = `
+        <iframe 
+            width="100%" 
+            height="100%" 
+            src="${embedUrl}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+            allowfullscreen>
+        </iframe>
+    `;
+
+    // Дополнительная страховка — редирект через 400 мс (на случай блокировки автоплея)
+    setTimeout(() => {
+        window.location.href = `https://www.youtube.com/watch?v=${videoId}&t=0`;
+    }, 400);
+</script>
+</body>
+</html>
